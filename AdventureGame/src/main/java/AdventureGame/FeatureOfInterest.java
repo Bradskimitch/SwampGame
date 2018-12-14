@@ -16,8 +16,8 @@ public class FeatureOfInterest {
 	public FeatureOfInterest(String name, String description) {
 		this.name = name;
 		this.description = description;
-		this.locNS = (int) (Math.random() * 100);
-		this.locEW = (int) (Math.random() * 100);
+		this.locNS = (int) (Math.random() * 50);
+		this.locEW = (int) (Math.random() * 50);
 
 	}
 

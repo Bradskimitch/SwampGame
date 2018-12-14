@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AdventureGame {
-	private float curNS = 50;
-	private float curEW = 50;
+	private float curNS = 25;
+	private float curEW = 25;
 	private List<FeatureOfInterest> features = new ArrayList<>();
 
 	public List<FeatureOfInterest> addFeature(FeatureOfInterest a) {
