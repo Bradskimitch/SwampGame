@@ -3,14 +3,14 @@ package AdventureGame;
 public class FeatureOfInterest {
 	private String name;
 	private String description;
-	private float locNS;
-	private float locEW;
+	private int locNS;
+	private int locEW;
 
 	public FeatureOfInterest(String name, String description, int locNS, int locEW) {
 		this.name = name;
 		this.description = description;
-		this.locNS = (int) locNS;
-		this.locEW = (int) locEW;
+		this.locNS = locNS;
+		this.locEW = locEW;
 	}
 
 	public FeatureOfInterest(String name, String description) {

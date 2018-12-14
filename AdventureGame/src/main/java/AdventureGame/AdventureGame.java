@@ -22,7 +22,8 @@ public class AdventureGame {
 		System.out.print("You wake up suddenly in a large grey swamp. "
 				+ "\nAround you there are few distinguising features other than the fact it is large and dreary. "
 				+ "\nBefore you on the ground is a watch." + "\nYou pick it up and on the screen it reads: "
-				+ findDist() + "m. " + "\nYou must decide which way to go, 'NORTH', 'SOUTH', 'EAST' or 'WEST'. \n");
+				+ findDist() + "m. " 
+				+ "\nYou must decide which way to go, 'NORTH', 'SOUTH', 'EAST' or 'WEST'. \n");
 
 		while (!input.toUpperCase().equals("END") && goal() == false) {
 			System.out.print(">");
@@ -71,8 +72,8 @@ public class AdventureGame {
 			else if (dir.equals("WEST"))
 				curEW--;
 			return true;
-		} else
-			System.out.println("Invalid Input");
+		}
+		System.out.println("Invalid Input");
 		return false;
 	}
 }
