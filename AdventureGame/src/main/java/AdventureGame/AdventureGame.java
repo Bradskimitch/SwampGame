@@ -14,7 +14,12 @@ public class AdventureGame {
 		return features;
 	}
 
-	public String play() {
+	public List<FeatureOfInterest> removeFeature(FeatureOfInterest a) {
+		features.remove(a);
+		return features;
+	}
+
+	public String play(FeatureOfInterest goal) {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		String input = "";
@@ -22,20 +27,24 @@ public class AdventureGame {
 		System.out.print("You wake up suddenly in a large grey swamp. "
 				+ "\nAround you there are few distinguising features other than the fact it is large and dreary. "
 				+ "\nBefore you on the ground is a watch." + "\nYou pick it up and on the screen it reads: "
-				+ findDist() + "m. " 
-				+ "\nYou must decide which way to go, 'NORTH', 'SOUTH', 'EAST' or 'WEST'. \n");
+				+ findDist() + "m. " + "\nYou must decide which way to go, 'NORTH', 'SOUTH', 'EAST' or 'WEST'. \n");
 
-		while (!input.toUpperCase().equals("END") && goal() == false) {
+		while (!input.toUpperCase().equals("END") && goal(goal) == false) {
 			System.out.print(">");
 			input = sc.next();
+
 			if (input.toUpperCase().equals("END"))
 				return "Ended";
+
 			if (move(input.toUpperCase()) == false)
 				continue;
+
 			System.out.println("You travel further " + input.toLowerCase() + ".");
+
 			features.stream().filter(n -> n.getLocNS() == curNS && n.getLocEW() == curEW)
-				.forEach(s -> System.out.println("You have found a " + s.getName() + ".\n" + s.getDescription()));
-			if (goal() != true)
+					.forEach(s -> System.out.println("You have found a " + s.getName() + ".\n" + s.getDescription()));
+
+			if (goal(goal) != true)
 				System.out.println("The watch reads: " + findDist() + "m");
 		}
 
@@ -52,10 +61,10 @@ public class AdventureGame {
 		return lowDist;
 	}
 
-	private boolean goal() {
+	private boolean goal(FeatureOfInterest goal) {
 		for (FeatureOfInterest i : features) {
 			if (curNS == i.getLocNS() && curEW == i.getLocEW())
-				if (i.getName().equals("Huge Sack"))
+				if (i.equals(goal))
 					return true;
 		}
 		return false;

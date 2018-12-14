@@ -14,7 +14,7 @@ public class App {
 		game.addFeature(tree);
 		game.addFeature(rHat);
 		
-		System.out.println(game.play());
+		System.out.println(game.play(goal));
 	}
 
 }
